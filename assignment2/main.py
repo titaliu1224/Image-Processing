@@ -9,15 +9,12 @@ result_img = [colored_img]
 
 fig = plt.figure()
 def show_img():
-    image_rgb = []
-    for i in result_img:
-        image_rgb.append(cv2.cvtColor(i, cv2.COLOR_BGR2RGB))
-
     for i in range(0, len(result_img)):
+        image_rgb = cv2.cvtColor(result_img[i], cv2.COLOR_BGR2RGB)
         fig.add_subplot(2, 2, i + 1)
-        plt.imshow(image_rgb[i])
+        plt.imshow(image_rgb)
         plt.axis("off")
-        
+
     plt.show()
 
 
