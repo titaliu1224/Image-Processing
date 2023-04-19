@@ -1,22 +1,3 @@
----
-title: "Python 和 OpenCV 的影像邊緣偵測"
-date: 2023-03-10 19:30:00 +0800
-
-tags: 
-  - Python
-  - OpenCV
-  - image processing
-  - edge detection
-  - Sobel operators
-  - Gaussian blur
-
-mermaid: true
-
-categories: [Python | 影像處理]
-
-img_path: ../../assets/img/posts/image_crop_and_rotate
----
-
 這是學校選修課的功課紀錄，同步發布於 [該課程 Blogger](https://yzucs362hw.blogspot.com/2023/03/s1091444-2.html) <br>
 
 ## 功課要求
