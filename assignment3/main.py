@@ -48,6 +48,18 @@ plt.axis("off")
 
 # get phase image
 phase = cv2.phase(planes[0], planes[1], angleInDegrees=True)
+# shift to center
+q0 = phase[0:cy, 0:cx]
+q1 = phase[0:cy, cx:dft_A.shape[1]]
+q2 = phase[cy:dft_A.shape[0], 0:cx]
+q3 = phase[cy:dft_A.shape[0], cx:dft_A.shape[1]]
+# swap diagonal phase
+tmp = np.copy(q0)
+phase[0:cy, 0:cx] = q3
+phase[cy:dft_A.shape[0], cx:dft_A.shape[1]] = tmp
+tmp = np.copy(q1)
+phase[0:cy, cx:dft_A.shape[1]] = q2
+phase[cy:dft_A.shape[0], 0:cx] = tmp
 cv2.normalize(phase, phase, 0, 1, cv2.NORM_MINMAX)
 # convert to 8 bit unsigned integer
 phase = phase * 255
