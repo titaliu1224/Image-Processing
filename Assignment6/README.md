@@ -31,8 +31,7 @@ import numpy as np
 
 ### 1/ 利用迴圈讀入三張圖片
 
-建立一個儲存三張圖片路徑的 list ，使用迴圈搭配 `cv2.imread(filename)` 讀入圖片並送至 `compress(original_img, compress_file)` 進行壓縮，取得壓縮率並儲存在 `compress_ratio[i]` 中。 <br>
-
+建立一個儲存三張圖片路徑的 list ，使用迴圈搭配讀入圖片並送至 `compress(original_img, compress_file)` 進行壓縮，取得壓縮率並儲存在 `compress_ratio[i]` 中。 <br>
 
 ```py
 def main():
@@ -99,7 +98,7 @@ file.write(str(last_pixel) + ", " + str(pixel_count) + "\n")
 
 #### 2.4/ 計算壓縮率
 首先，利用 `os.path.getsize(filename)` 取得檔案大小。 <br>
-壓縮率的計算為 原檔案大小 / 壓縮檔案大小，相除之後使用 formatted string 顯示在表格中。（也可以不用表格啦但我覺得這樣方便看）
+壓縮率的計算為 原檔案大小 / 壓縮檔案大小，相除之後使用 formatted string 顯示在表格中。
 
 ```py
 original_size = os.path.getsize(img_path)
@@ -126,7 +125,7 @@ plt.axis("off")
 #### 3.1/ 創建畫布
 
 使用 `img_size = file.readline().rstrip('\n').split(", ")` 取得圖片的大小之後，建立一個擁有三個元素的二維 list ，每一個元素是儲存 B, G, R 單個通道的資料，每一個元素的大小為 `img_size[0] * img_size[1]` 。 <br>
-同時，使用 `file.read().split("\n")` 讀取剩下的資料，每一個通道的值是使用 `\n` 做分割，其中每一個 pixel 的值用 `, ` 分割。
+同時，使用 `file.read().split("\n")` 讀取剩下的資料，每一個通道的值是使用 `\n` 做分割，其中每一個 pixel 的值用 `,` 分割。
 
 ```py
 with open(compress_file, "r") as file:
